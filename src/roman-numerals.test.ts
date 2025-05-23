@@ -13,6 +13,7 @@ const r = new RomanNumeral
 test.each([
     ['I', 1],
     ['II', 2],
+    ['III', 3],
 ])("%s should return %s",(input, expected) => {
     expect(r.of(input)).toBe(expected);
 });
