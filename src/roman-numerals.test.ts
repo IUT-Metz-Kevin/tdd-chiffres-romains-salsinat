@@ -1,11 +1,13 @@
 import { it, expect, test } from "vitest";
 
 class RomanNumeral {
+    private translation = {
+        'I': 1, 'V': 5, 'X':10
+    }
     of(value: string): number {
-        const countI = value.split("").filter((char) => char === 'I').length;
-        const countV = value.split("").filter((char) => char === 'V').length;
-        const countX = value.split("").filter((char) => char === 'X').length;
-        return countI + countV * 5 + countX * 10;
+        let res = 0
+        for (let char of value) res += this.translation[char]
+        return res;
     }
 }
 
