@@ -3,7 +3,7 @@ import { it, expect, test } from "vitest";
 
 class RomanNumeral {
     private translation = {
-        'I': 1, 'V': 5, 'X':10
+        'I': 1, 'V': 5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000
     }
     of(value: string): number {
         let res = 0;
@@ -29,7 +29,9 @@ test.each([
     ['VI', 6],
     ['VII', 7],
     ['VIII', 8],
+    ['IX', 9],
     ['X', 10],
+    ['MCMXCVIII',1998]
 ])("%s should return %s",(input, expected) => {
     expect(r.of(input)).toBe(expected);
 });
