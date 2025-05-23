@@ -1,3 +1,4 @@
+import { sign } from "crypto";
 import { it, expect, test } from "vitest";
 
 class RomanNumeral {
@@ -5,8 +6,14 @@ class RomanNumeral {
         'I': 1, 'V': 5, 'X':10
     }
     of(value: string): number {
-        let res = 0
-        for (let char of value) res += this.translation[char]
+        let res = 0;
+        for (let i=0; i<value.length; i++) {
+            let signe = 1;
+            if (i+1 != value.length) {
+                if (this.translation[value[i]] < this.translation[value[i+1]]) signe = -1
+            };
+            res += (this.translation[value[i]] * signe);
+        }; 
         return res;
     }
 }
