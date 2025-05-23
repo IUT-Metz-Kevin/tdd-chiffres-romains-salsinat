@@ -4,6 +4,7 @@ class RomanNumeral {
     of(value: string): number {
         const countI = value.split("").filter((char) => char === 'I').length;
         const countV = value.split("").filter((char) => char === 'V').length;
+        
         return countI + countV * 5;
     }
 }
@@ -15,6 +16,10 @@ test.each([
     ['II', 2],
     ['III', 3],
     ['V', 5],
+    ['VI', 6],
+    ['VII', 7],
+    ['VIII', 8],
+    ['X', 10],
 ])("%s should return %s",(input, expected) => {
     expect(r.of(input)).toBe(expected);
 });
