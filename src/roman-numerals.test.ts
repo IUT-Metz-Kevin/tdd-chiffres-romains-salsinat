@@ -36,7 +36,7 @@ test.each([
 });
 
 function convert(n:number): string {
-    return '';
+    return 'I';
 }
 
 test.each([
