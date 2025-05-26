@@ -50,10 +50,16 @@ function convert(n:number): string {
     let result = '';
     let resultValue = 0;
 
-    for (const key of keys) {
+    for (let i=0; i<keys.length; i++) {
+        const key = keys[i];
+        const nextKey = keys[i+1] || 0;
         while (n >= key+resultValue) {
             result += symbolTable[key];
             resultValue += key;
+        }
+        if (resultValue >= key - nextKey + resultValue) {
+            result += symbolTable[nextKey] + symbolTable[key];
+            resultValue += key - nextKey;
         }
     }
     return result;
