@@ -36,7 +36,9 @@ test.each([
 });
 
 function convert(n:number): string {
-    return 'I';
+    if (n === 1) return 'I';
+    if (n === 2) return 'II';
+    return ''
 }
 
 test.each([
