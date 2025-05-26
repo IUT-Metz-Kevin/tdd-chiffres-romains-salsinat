@@ -36,10 +36,11 @@ test.each([
 });
 
 function convert(n:number): string {
-    if (n === 1) return 'I';
-    if (n === 2) return 'II';
-    if (n === 3) return 'III';
-    return '';
+    let romanianNumber = '';
+    for (let i=0; i<n; i++) {
+        romanianNumber += 'I';
+    }
+    return romanianNumber;
 }
 
 test.each([
