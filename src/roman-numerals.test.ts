@@ -17,6 +17,10 @@ class RomanNumeral {
     }
 }
 
+function convert(n:number): string {
+    return '';
+}
+
 const r = new RomanNumeral
 
 test.each([
@@ -34,3 +38,9 @@ test.each([
 ])("%s should return %s",(input, expected) => {
     expect(r.of(input)).toBe(expected);
 });
+
+test.each([
+    [1,'I'],
+])("%s should return %s",(input, expected) => {
+    expect(convert(input)).toBe(expected);
+})
