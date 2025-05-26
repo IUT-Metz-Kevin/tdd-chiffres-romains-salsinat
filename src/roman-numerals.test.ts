@@ -38,12 +38,13 @@ test.each([
 function convert(n:number): string {
     if (n === 1) return 'I';
     if (n === 2) return 'II';
-    return ''
+    return '';
 }
 
 test.each([
     [1,'I'],
     [2,'II'],
+    [3,'III'],
 ])("%s should return %s",(input, expected) => {
     expect(convert(input)).toBe(expected);
 })
