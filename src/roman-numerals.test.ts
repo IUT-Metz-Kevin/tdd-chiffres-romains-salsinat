@@ -41,6 +41,7 @@ function convert(n:number): string {
 
 test.each([
     [1,'I'],
+    [2,'II'],
 ])("%s should return %s",(input, expected) => {
     expect(convert(input)).toBe(expected);
 })
