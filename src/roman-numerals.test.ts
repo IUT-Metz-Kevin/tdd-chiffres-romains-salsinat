@@ -47,6 +47,7 @@ test.each([
     [1,'I'],
     [2,'II'],
     [3,'III'],
+    [3,'V'],
 ])("%s should return %s",(input, expected) => {
     expect(convert(input)).toBe(expected);
 })
