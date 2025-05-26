@@ -35,19 +35,35 @@ test.each([
     expect(r.of(input)).toBe(expected);
 });
 
+const symbolTable = {
+    1: 'I',
+    5: 'V',
+    10: 'X',
+    50: 'L',
+    100: 'C',
+    500: 'D',
+    1000: 'M'
+}
+
 function convert(n:number): string {
-    let romanianNumber = '';
-    for (let i=0; i<n; i++) {
-        romanianNumber += 'I';
+    const keys = Object.keys(symbolTable).map(Number).reverse();
+    let result = '';
+    let resultValue = 0;
+
+    for (const key of keys) {
+        while (n >= key+resultValue) {
+            result += symbolTable[key];
+            resultValue += key;
+        }
     }
-    return romanianNumber;
+    return result;
 }
 
 test.each([
     [1,'I'],
     [2,'II'],
     [3,'III'],
-    [3,'V'],
+    [5,'V'],
 ])("%s should return %s",(input, expected) => {
     expect(convert(input)).toBe(expected);
 })
